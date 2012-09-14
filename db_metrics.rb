@@ -12,7 +12,9 @@ vmstat = `vmstat`
 #I think we are going to want to in include vmstat -d or iostat here as well.
 
 # output should look like this
-# => "procs -----------memory---------- ---swap-- -----io---- -system-- ----cpu----\n r  b   swpd   free   buff  cache   si   so    bi    bo   in   cs us sy id wa\n 2  0 232684 479652 21943084 17665440  111   77   123   826    6    0 27  7 63  3\n"
+# => "procs -----------memory---------- ---swap-- -----io---- -system-- ----cpu----\n 
+#    r  b   swpd   free   buff  cache   si   so    bi    bo   in   cs us sy id wa\n 
+#    2  0 232684 479652 21943084 17665440  111   77   123   826    6    0 27  7 63  3\n"
 
 headers_vmstat = vmstat.split(/\r?\n/)[1]
 metrics_vmstat = vmstat.split(/\r?\n/)[2]
