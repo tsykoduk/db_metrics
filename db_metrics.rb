@@ -3,7 +3,7 @@ uptime = `uptime`
 # output should look like this
 # => " 19:31:19 up 7 days, 40 min,  0 users,  load average: 11.55, 12.50, 14.99\n"
 
-load = "Load Average: " + uptime.split(':')[3].chomp.lstrip
+load_stat = "Load Average: " + uptime.split(':')[3].chomp.lstrip
 
 # => "1.40 1.23 1.43"
 
@@ -22,6 +22,6 @@ metrics_vmstat = vmstat.split(/\r?\n/)[2]
 
 #inject into log stream somehow here.
 
-puts load
+puts load_stat
 puts headers_vmstat
 puts metrics_vmstat
