@@ -9,8 +9,6 @@ load_stat = "Load Average: " + uptime.split(':')[3].chomp.lstrip
 
 vmstat = `vmstat`
 
-#I think we are going to want to in include vmstat -d or iostat here as well.
-
 # output should look like this
 # => "procs -----------memory---------- ---swap-- -----io---- -system-- ----cpu----\n 
 #    r  b   swpd   free   buff  cache   si   so    bi    bo   in   cs us sy id wa\n 
@@ -19,9 +17,18 @@ vmstat = `vmstat`
 headers_vmstat = vmstat.split(/\r?\n/)[1]
 metrics_vmstat = vmstat.split(/\r?\n/)[2]
 
+iostat = `iostat -d`
+
+headers_iostat = iostat.split(/\r?\n/)[0]
+details_iostat = iostat.split(/\r?\n/)[1]
+metrics_iostat = iostat.split(/\r?\n/)[2]
+
 
 #inject into log stream somehow here.
 
 puts load_stat
 puts headers_vmstat
 puts metrics_vmstat
+puts headers_iostat
+puts details_iostat
+puts metrics_iostat
