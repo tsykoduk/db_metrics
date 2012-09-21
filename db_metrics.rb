@@ -28,13 +28,17 @@ array_of_headers = headers_iostat.lstrip.split("  ")
 array_of_metrics = metrics_iostat.split
 array_of_details = details_iostat.split
 
+#puts iostat
+
 array_of_headers.each { |a| 
   unless a == ""
     report << a.lstrip + ": " + 
-              array_of_details[x] + " " + array_of_metrics[x] + ", " + 
-              array_of_details[x+1] + " " + array_of_metrics[x+1] + ", " + 
-              array_of_details[x+2] + " " + array_of_metrics[x+2]
-  
+              array_of_details[x] + " " + 
+              array_of_metrics[x] + ", " + 
+              array_of_details[x+1] + " " + 
+              array_of_metrics[x+1] + ", " + 
+              array_of_details[x+2] + " " + 
+              array_of_metrics[x+2]
     x = x + 3
   end
   }
